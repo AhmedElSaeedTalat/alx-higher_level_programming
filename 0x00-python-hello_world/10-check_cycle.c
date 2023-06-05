@@ -10,6 +10,8 @@ int check_cycle(listint_t *list)
 {
 	listint_t *ptr, *ptr2;
 
+	if (list == NULL)
+		return (0);
 	ptr = ptr2 = list;
 	while (ptr2 != NULL)
 	{
