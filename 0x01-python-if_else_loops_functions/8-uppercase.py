@@ -5,6 +5,6 @@ def uppercase(str):
         if letter >= 97 and letter <= 122:
             letter = letter - 32
         if index == len(str) - 1:
-            print("{}".format(chr(letter)))
+            print("{}".format(chr(letter)),end='\n')
             continue
         print("{}".format(chr(letter)), end='')
