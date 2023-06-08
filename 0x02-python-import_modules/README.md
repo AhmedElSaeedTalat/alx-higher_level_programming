@@ -1,6 +1,6 @@
-##Project discription
+## Project discription
 Importing Modules
-#Technologies used
+# Technologies used
 Pytohon
-#Author
+# Author
 Ahmed El-Saeed
