@@ -1,6 +1,6 @@
-## Project Description
+# Project Description
 Data structures in python tasks
-# Technology Used
+## Technology Used
 Python
-# Author
+## Author
 Ahmed El Saeed
