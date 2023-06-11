@@ -22,7 +22,7 @@ int is_palindrome(listint_t **head)
 	}
 	for (y = 0, x = i - 1; y < i; y++, x--)
 	{
-		if (y == (i / 2) - 1)
+		if (y == i / 2)
 			break;
 		if (list[y] != list[x])
 			return (0);
