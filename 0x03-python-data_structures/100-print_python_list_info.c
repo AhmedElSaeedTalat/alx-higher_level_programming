@@ -10,11 +10,11 @@
 void print_python_list_info(PyObject *p)
 {
 	int i;
-	PyObject *it;
+	PyObject *its;
 
 	for (i = 0; i < 2; i++)
 	{
-		it = PyList_GetItem(p, i);
-		printf("%s\n", PyUnicode_AsUTF8(it));
+		its = PyList_GetItem(p, i);
+		printf("%s\n", PyUnicode_AsUTF8(its));
 	}
 }
