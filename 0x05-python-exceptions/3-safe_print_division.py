@@ -2,7 +2,7 @@
 def safe_print_division(a, b):
     result = 0
     try:
-        if a == 0 or b == 0:
+        if b == 0:
             result = None
         else:
             result = a / b
