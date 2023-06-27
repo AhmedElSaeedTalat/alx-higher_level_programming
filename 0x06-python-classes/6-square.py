@@ -85,11 +85,11 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(self, value):
+    def position(self, position):
         """
-            position(self, value): sets position
+            position(self, position): sets position
             Args:
-                value (int): value to set the position with
+                position (int): value to set the position with
         """
         if not isinstance(position, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
