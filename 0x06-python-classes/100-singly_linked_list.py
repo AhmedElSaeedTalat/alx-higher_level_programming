@@ -70,6 +70,8 @@ class SinglyLinkedList:
         self.__head = None
 
     def __str__(self):
+        if self.__head is None:
+            return ''
         current = self.__head
         l_list = []
         while current:
