@@ -63,19 +63,24 @@ class Square:
             my_print: prints in stdout the square with the character #
         """
         counter = 0
+        l1 = []
         for i in range(self.area()):
             if len(self.__position) == 2 and i == 0:
                 for y in range(self.position[1]):
-                    print()
+                    l1.append('\n')
             if counter == self.size:
-                print()
+                l1.append('\n')
                 counter = 0
             if len(self.__position) == 2 and counter == 0:
                 for y in range(self.__position[0]):
-                    print(' ', end='')
-            print('#', end='')
+                    l1.append(' ')
+            l1.append('#')
             counter += 1
-        print()
+#        l1.append('\n')
+        return l1
+
+    def __str__(self):
+        return ''.join(self.my_print())
 
     @property
     def position(self):
