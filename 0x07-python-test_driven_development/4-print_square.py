@@ -1,5 +1,13 @@
 #!/usr/bin/python3
+""" function to print squares based on size """
+
+
 def print_square(size):
+    """
+        def print_square(size): prints squares based on size
+        Args:
+            size: size of the square
+    """
     if not isinstance(size, int):
         raise TypeError("size must be an integer")
     elif size < 0:
