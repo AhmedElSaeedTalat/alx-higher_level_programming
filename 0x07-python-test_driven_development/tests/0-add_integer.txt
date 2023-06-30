@@ -1,0 +1,72 @@
+test for 0-add_integer
+----------------------
+
+import file
+-----------
+>>> add = __import__("0-add_integer").add_integer
+
+case 2 integers
+-------------------
+>>> add(5, 5)
+10
+
+case integer and float
+-------------------
+>>> add(5, 5.54)
+10
+
+case 2 floats
+-------------------
+>>> add(6.6, 6.5)
+12
+
+case type Error
+===============
+case string a and integer
+-------------------------
+>>> add('hsdf', 4)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+case string a and integer
+-------------------------
+>>> add(5, 'hadsf')
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+case integer a and list
+-------------------------
+>>> add(4, [5, 6])
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+case list a and b
+-------------------------
+>>> add([4,6], 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+case a and tuple
+-------------------------
+>>> add(5, (5, 8))
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+case tuple and b
+-------------------------
+>>> add((5, 8), 6)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+case None and b
+-------------------------
+>>> add(None, 6)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
