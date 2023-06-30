@@ -1,0 +1,59 @@
+test for 2-matrix_divided
+----------------------
+
+import file
+-----------
+>>> divide = __import__("2-matrix_divided").matrix_divided
+
+case 2 integers
+-------------------
+
+case type Error
+===============
+case string a and integer
+-------------------------
+>>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5]]
+>>> divide(matrix, 3)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+case string a and integer
+-------------------------
+>>> matrix = [[1, 2, 3], [4, "ahmed", 6], [2 , 6, 7]]
+>>> divide(matrix, 3)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+case string a and integer
+-------------------------
+>>> matrix = [[1, 2, 3], (4, 5, 6), [2 , 5]]
+>>> divide(matrix, 3)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+case string a and integer
+-------------------------
+>>> matrix = ([1, 2, 3], [4, 5, 6], [2 , 5, 4])
+>>> divide(matrix, 3)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+case string a and integer
+-------------------------
+>>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5, 8]]
+>>> divide(matrix, 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
+
+case string a and integer
+-------------------------
+>>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5, 5]]
+>>> divide(matrix, 'ahmed')
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number

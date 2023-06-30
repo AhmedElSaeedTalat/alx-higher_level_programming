@@ -1,0 +1,33 @@
+test for 4-print_square
+----------------------
+
+import file
+-----------
+>>> print_square = __import__("4-print_square").print_square
+
+case 2 integers
+-------------------
+
+case type Error
+===============
+case string a and integer
+-------------------------
+>>> print_square('h')
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+case string a and integer
+-------------------------
+>>> print_square(-5)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+case string a and integer
+-------------------------
+>>> print_square(-5.43)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+

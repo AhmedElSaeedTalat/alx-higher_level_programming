@@ -1,0 +1,26 @@
+test for 3-say_my_name
+----------------------
+
+import file
+-----------
+>>> my_name = __import__("3-say_my_name").say_my_name
+
+case 2 integers
+-------------------
+
+case type Error
+===============
+case string a and integer
+-------------------------
+>>> my_name('ahmed', 3)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+case string a and integer
+-------------------------
+>>> my_name(5, 'ahmed')
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+

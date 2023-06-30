@@ -1,0 +1,19 @@
+test for 5-text_indentation
+----------------------
+
+import file
+-----------
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+case 2 integers
+-------------------
+
+case type Error
+===============
+case string a and integer
+-------------------------
+>>> text_indentation(4)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
