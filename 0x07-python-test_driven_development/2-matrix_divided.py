@@ -11,8 +11,11 @@ def matrix_divided(matrix, div):
             div: integer used to be divided by
     """
     l1 = []
+    if not matrix:
+        return []
     matrix_error = "matrix must be a matrix (list of lists) of integers/floats"
-    len_first_r = len(matrix[0])
+    if len(matrix) > 0:
+        len_first_r = len(matrix[0])
     if not isinstance(matrix, list):
         raise TypeError(matrix_error)
     if not all(isinstance(i, list) for i in matrix):

@@ -5,12 +5,27 @@ import file
 -----------
 >>> divide = __import__("2-matrix_divided").matrix_divided
 
-case 2 integers
+case matrix and div
 -------------------
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> divide(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+case matrix and div
+-------------------
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> divide(matrix, -3)
+[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+case matrix is None and div
+-------------------
+>>> matrix = None
+>>> divide(matrix, -3)
+[]
 
 case type Error
 ===============
-case string a and integer
+case not same size
 -------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5]]
 >>> divide(matrix, 3)
@@ -26,7 +41,7 @@ Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-case string a and integer
+case including a tuple
 -------------------------
 >>> matrix = [[1, 2, 3], (4, 5, 6), [2 , 5]]
 >>> divide(matrix, 3)
@@ -34,7 +49,7 @@ Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-case string a and integer
+case matrix is a tuple
 -------------------------
 >>> matrix = ([1, 2, 3], [4, 5, 6], [2 , 5, 4])
 >>> divide(matrix, 3)
@@ -42,7 +57,7 @@ Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-case string a and integer
+case division by 0
 -------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5, 8]]
 >>> divide(matrix, 0)
@@ -50,7 +65,7 @@ Traceback (most recent call last):
     ...
 ZeroDivisionError: division by zero
 
-case string a and integer
+case division by string
 -------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5, 5]]
 >>> divide(matrix, 'ahmed')
