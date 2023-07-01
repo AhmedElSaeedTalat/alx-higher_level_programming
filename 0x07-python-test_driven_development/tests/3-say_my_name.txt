@@ -5,22 +5,34 @@ import file
 -----------
 >>> my_name = __import__("3-say_my_name").say_my_name
 
-case 2 integers
+case empty string integers
 -------------------
+>>> my_name("", "ahmed")
+
+
+case white spaces
+-------------------
+>>> my_name("        ", "ahmed")
 
 case type Error
 ===============
-case string a and integer
+case string first_name and integer
 -------------------------
 >>> my_name('ahmed', 3)
 Traceback (most recent call last):
     ...
 TypeError: last_name must be a string
 
-case string a and integer
+case last_name and integer
 -------------------------
 >>> my_name(5, 'ahmed')
 Traceback (most recent call last):
     ...
 TypeError: first_name must be a string
 
+case string None and last_name
+-------------------------
+>>> my_name(None, 'ahmed')
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
