@@ -7,27 +7,38 @@ import file
 
 case 2 integers
 -------------------
+>>> print_square(4)
+####
+####
+####
+####
 
 case type Error
 ===============
-case string a and integer
+case size is a stirng
 -------------------------
 >>> print_square('h')
 Traceback (most recent call last):
     ...
 TypeError: size must be an integer
 
-case string a and integer
+case size is a negative number
 -------------------------
 >>> print_square(-5)
 Traceback (most recent call last):
     ...
 ValueError: size must be >= 0
 
-case string a and integer
+case size is a float
 -------------------------
 >>> print_square(-5.43)
 Traceback (most recent call last):
     ...
 TypeError: size must be an integer
 
+case size is None
+-------------------------
+>>> print_square(None)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
