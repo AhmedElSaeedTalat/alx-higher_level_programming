@@ -5,15 +5,46 @@ import file
 -----------
 >>> text_indentation = __import__("5-text_indentation").text_indentation
 
-case 2 integers
+case special characters
 -------------------
+>>> text_indentation("""Lorem ipsum. dolor? sit amet""")
+Lorem ipsum.
+<BLANKLINE>
+dolor?
+<BLANKLINE>
+sit amet
+
+case white spaces befor or after
+-------------------
+>>> text_indentation("""   Lorem ipsum. dolor? sit amet   """)
+Lorem ipsum.
+<BLANKLINE>
+dolor?
+<BLANKLINE>
+sit amet
+
+case special characters coming consecutives
+-------------------
+>>> text_indentation("""Lorem ipsum.:? dolor.?: sit amet""")
+Lorem ipsum.:?
+<BLANKLINE>
+dolor.?:
+<BLANKLINE>
+sit amet
+
+case empty string
+-------------------
+>>> text_indentation("")
+
+case white spaces
+-------------------
+>>> text_indentation("           ")
 
 case type Error
 ===============
-case string a and integer
+case integer passed
 -------------------------
 >>> text_indentation(4)
 Traceback (most recent call last):
     ...
 TypeError: text must be a string
-
