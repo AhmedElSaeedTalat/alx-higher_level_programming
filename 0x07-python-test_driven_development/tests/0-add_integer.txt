@@ -20,6 +20,11 @@ case 2 floats
 >>> add(6.6, 6.5)
 12
 
+case 2 negatives
+-------------------
+>>> add(-6, -6)
+-12
+
 case type Error
 ===============
 case string a and integer
@@ -70,3 +75,17 @@ case None and b
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
+
+case overflow
+-------------------------
+>>> add(float('nan'), 6)
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+
+case overflow
+-------------------------
+>>> add(float('inf'), 6)
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer

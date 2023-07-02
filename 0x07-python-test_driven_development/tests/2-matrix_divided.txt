@@ -17,12 +17,6 @@ case matrix and div
 >>> divide(matrix, -3)
 [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
 
-case matrix is None and div
--------------------
->>> matrix = None
->>> divide(matrix, -3)
-[]
-
 case type Error
 ===============
 case not same size
@@ -72,3 +66,19 @@ case division by string
 Traceback (most recent call last):
     ...
 TypeError: div must be a number
+
+case matrix is None and div
+-------------------
+>>> matrix = None
+>>> divide(matrix, -3)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+case matrix is empty
+-------------------
+>>> matrix = []
+>>> divide(matrix, -3)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats

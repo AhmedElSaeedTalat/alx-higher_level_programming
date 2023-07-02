@@ -5,13 +5,32 @@ import file
 -----------
 >>> print_square = __import__("4-print_square").print_square
 
-case 2 integers
+case size is 2
 -------------------
 >>> print_square(4)
 ####
 ####
 ####
 ####
+
+case size is 10
+-------------------
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+	
+case size is 0
+-------------------
+>>> print_square(0)
 
 case type Error
 ===============
@@ -31,7 +50,7 @@ ValueError: size must be >= 0
 
 case size is a float
 -------------------------
->>> print_square(-5.43)
+>>> print_square(5.43)
 Traceback (most recent call last):
     ...
 TypeError: size must be an integer
@@ -42,3 +61,10 @@ case size is None
 Traceback (most recent call last):
     ...
 TypeError: size must be an integer
+
+case not providing size at all
+-------------------------
+>>> print_square()
+Traceback (most recent call last):
+    ...
+TypeError: print_square() missing 1 required positional argument: 'size'
