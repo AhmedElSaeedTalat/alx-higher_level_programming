@@ -41,24 +41,24 @@ class TestMax(unittest.TestCase):
             max_integer function with a list with negative values
         """
         self.assertEqual(max_integer([-8, -2, -9]), -2)
-    
+
     def test_max_integer_floats(self):
         """
             def test_max_integer_negative(self): test function to test
             max_integer function with a list of float values
         """
         self.assertEqual(max_integer([8.2, 2.32, 9.233]), 9.233)
-    
+
     def test_max_integer_string(self):
         """
             def test_max_integer_negative(self): test function to test
             max_integer function with a string that represents a list
         """
         self.assertEqual(max_integer("name"), 'n')
-    
+
     def test_max_integer_listStrings(self):
         """
             def test_max_integer_negative(self): test function to test
             max_integer function with a list of strings
         """
-        self.assertEqual(max_integer(["first_name", "second_name", "third_name"]), "third_name")
+        self.assertEqual(max_integer(["first", "second", "third"]), "third")
