@@ -13,7 +13,6 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     if not text.strip():
         return
-    text = text.strip()
     text = text.replace(".", ".\n").replace("?", "?\n").replace(":", ":\n")
     text = text.splitlines()
     l1 = []
@@ -29,4 +28,5 @@ def text_indentation(text):
             print(i, end='')
         else:
             print(i)
-            print()
+            if i != '':
+                print()
