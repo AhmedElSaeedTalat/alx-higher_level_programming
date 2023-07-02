@@ -1,0 +1,88 @@
+test for 5-text_indentation
+----------------------
+
+import file
+-----------
+>>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+
+case 1:
+-------------------
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+case 2:
+-------------------
+>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+[[13, 16]]
+
+case type Error
+===============
+case m_a list is empty
+-------------------------
+>>> matrix_mul([],[[2, 4], [2,3]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a can't be empty
+
+case m_b list is empty
+-------------------------
+>>> matrix_mul([[2, 4], [2,3]],[])
+Traceback (most recent call last):
+    ...
+ValueError: m_b can't be empty
+
+case passing string to m_b:
+-------------------
+>>> matrix_mul([[1, 2], [3, 4]], [['a', 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+TypeError: m_b should contain only integers or floats
+
+case passing string to m_a:
+-------------------
+>>> matrix_mul([[1, 2], ['ab', 4]], [[3, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+TypeError: m_a should contain only integers or floats
+
+case passing non list first argument:
+-------------------
+>>> matrix_mul(5, [[3, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+TypeError: m_a must be a list
+
+case passing non list second argument:
+-------------------
+>>> matrix_mul([[3, 2], [3, 4]], 5)
+Traceback (most recent call last):
+    ...
+TypeError: m_b must be a list
+
+case passing non list of lists first argument:
+-------------------
+>>> matrix_mul([5, 6, 8], [[3, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+TypeError: m_a must be a list of lists
+
+case passing non list of lists second argument:
+-------------------
+>>> matrix_mul([[3, 2], [3, 4]], [4, 6, 3])
+Traceback (most recent call last):
+    ...
+TypeError: m_b must be a list of lists
+
+case passing not same size for first argument:
+-------------------
+>>> matrix_mul([[3, 2, 4], [3, 4]], [[4, 6, 3], [4, 3, 1]])
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_a must be of the same size
+
+case passing not same size for second argument:
+-------------------
+>>> matrix_mul([[3, 2, 4], [3, 4, 8]], [[4, 6, 3], [4, 3]])
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_b must be of the same size
