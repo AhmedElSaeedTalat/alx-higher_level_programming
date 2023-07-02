@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+def matrix_mul(m_a, m_b):
+    l1 = []
+    for i in mx1:
+        new_matrix = list(zip(*mx1))
+    for i in mx:
+        for y in new_matrix:
+            l1.append(list(map(lambda x, z: x * z, i, y)))
+    l2 = []
+    new_list = []
+    for i in l1:
+        l2.append(sum(i))
+        if len(mx1) == len(l2):
+            new_list.append(l2)
+            l2 = []
+print(new_list)        
+        
