@@ -1,0 +1,43 @@
+test for lazy_matrix_mul
+----------------------
+
+import file
+-----------
+>>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+
+case 1:
+-------------------
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[ 7 10]
+ [15 22]]
+
+case 2:
+-------------------
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13 16]]
+
+case not all same size:
+-------------------
+>>> print(lazy_matrix_mul([[1]], [[3, 4], [5, 6]]))
+Traceback (most recent call last):
+    ...
+ValueError: shapes (1,1) and (2,2) not aligned: 1 (dim 1) != 2 (dim 0)
+
+case None instead of integer:
+-------------------
+>>> print(lazy_matrix_mul([[1, None]], [[3, 4], [5, 6]]))
+Traceback (most recent call last):
+    ...
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+
+case string in a list:
+-------------------
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 'string'], [5, 6]]))
+Traceback (most recent call last):
+    ...
+ValueError: data type must provide an itemsize
+
+case string in a list:
+-------------------
+>>> print(lazy_matrix_mul([[1, 2]], [[3, -5], [5, 6]]))
+[[13  7]]
