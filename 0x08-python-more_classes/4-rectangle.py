@@ -97,4 +97,4 @@ class Rectangle:
         """
         h = self.__height
         w = self.__width
-        return "Rectangle(" + str(w) + "," + str(h) + ")"
+        return "Rectangle(" + str(w) + ", " + str(h) + ")"
