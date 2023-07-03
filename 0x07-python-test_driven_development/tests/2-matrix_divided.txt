@@ -8,13 +8,13 @@ import file
 case matrix and div
 -------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> divide(matrix, 3)
+>>> print(divide(matrix, 3))
 [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
 case matrix and div
 -------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> divide(matrix, -3)
+>>> print(divide(matrix, -3))
 [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
 
 case type Error
@@ -22,7 +22,7 @@ case type Error
 case not same size
 -------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5]]
->>> divide(matrix, 3)
+>>> print(divide(matrix, 3))
 Traceback (most recent call last):
     ...
 TypeError: Each row of the matrix must have the same size
@@ -30,7 +30,7 @@ TypeError: Each row of the matrix must have the same size
 case string a and integer
 -------------------------
 >>> matrix = [[1, 2, 3], [4, "ahmed", 6], [2 , 6, 7]]
->>> divide(matrix, 3)
+>>> print(divide(matrix, 3))
 Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -38,7 +38,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 case including a tuple
 -------------------------
 >>> matrix = [[1, 2, 3], (4, 5, 6), [2 , 5]]
->>> divide(matrix, 3)
+>>> print(divide(matrix, 3))
 Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -46,7 +46,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 case matrix is a tuple
 -------------------------
 >>> matrix = ([1, 2, 3], [4, 5, 6], [2 , 5, 4])
->>> divide(matrix, 3)
+>>> print(divide(matrix, 3))
 Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -54,7 +54,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 case division by 0
 -------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5, 8]]
->>> divide(matrix, 0)
+>>> print(divide(matrix, 0))
 Traceback (most recent call last):
     ...
 ZeroDivisionError: division by zero
@@ -62,7 +62,7 @@ ZeroDivisionError: division by zero
 case division by string
 -------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6], [2 , 5, 5]]
->>> divide(matrix, 'ahmed')
+>>> print(divide(matrix, 'ahmed'))
 Traceback (most recent call last):
     ...
 TypeError: div must be a number
@@ -70,7 +70,7 @@ TypeError: div must be a number
 case matrix is None and div
 -------------------
 >>> matrix = None
->>> divide(matrix, -3)
+>>> print(divide(matrix, -3))
 Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -78,7 +78,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 case matrix is empty
 -------------------
 >>> matrix = []
->>> divide(matrix, -3)
+>>> print(divide(matrix, -3))
 Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
