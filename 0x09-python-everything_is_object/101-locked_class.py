@@ -11,4 +11,4 @@ class LockedClass:
             error = "'LockedClass' object has no attribute"
             raise AttributeError(f"{error} '{attribute}'")
         else:
-            super().__setattr__(attribute, value)
+            super().__setattr__("first_name", value)
