@@ -69,3 +69,17 @@ case missgin 2 argument:
 Traceback (most recent call last):
     ...
 TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+case empty list of lists:
+-------------------
+>>> print(lazy_matrix_mul([[]], [[3, 4], [5, 6]]))
+Traceback (most recent call last):
+    ...
+ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
+
+case empty list of lists:
+-------------------
+>>> print(lazy_matrix_mul([[3, 4], [5, 6]], [[]]))
+Traceback (most recent call last):
+    ...
+ValueError: shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
