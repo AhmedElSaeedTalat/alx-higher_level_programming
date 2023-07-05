@@ -41,3 +41,17 @@ case string in a list:
 -------------------
 >>> print(lazy_matrix_mul([[1, 2]], [[3, -5], [5, 6]]))
 [[13  7]]
+
+case missgin one argument:
+-------------------
+>>> print(lazy_matrix_mul([[3, 4], [5, 6]]))
+Traceback (most recent call last):
+    ...
+TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+case missgin 2 argument:
+-------------------
+>>> print(lazy_matrix_mul())
+Traceback (most recent call last):
+    ...
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
