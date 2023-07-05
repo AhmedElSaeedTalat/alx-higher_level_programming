@@ -39,6 +39,13 @@ ValueError: data type must provide an itemsize
 
 case string in a list:
 -------------------
+>>> print(lazy_matrix_mul([[1, 2], [3, 1]], 'string'))
+Traceback (most recent call last):
+    ...
+TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U6') dtype('<U6') dtype('<U6')
+
+case string in a list:
+-------------------
 >>> print(lazy_matrix_mul([[1, 2]], [[3, -5], [5, 6]]))
 [[13  7]]
 
