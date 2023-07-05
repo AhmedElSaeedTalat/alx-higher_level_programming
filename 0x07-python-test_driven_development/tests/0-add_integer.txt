@@ -10,6 +10,11 @@ case 2 integers
 >>> add(5, 5)
 10
 
+case 3 integers
+-------------------
+>>> add(2)
+100
+
 case integer and float
 -------------------
 >>> add(5, 5.54)
@@ -89,3 +94,10 @@ case overflow
 Traceback (most recent call last):
     ...
 OverflowError: cannot convert float infinity to integer
+
+case no arguments
+-------------------------
+>>> add()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'

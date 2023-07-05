@@ -13,7 +13,4 @@ try:
     print(add_integer(None))
 except Exception as e:
     print(e)
-try:
-    print(add_integer(None, 5))
-except Exception as e:
-    print(e)
+print(add_integer())
