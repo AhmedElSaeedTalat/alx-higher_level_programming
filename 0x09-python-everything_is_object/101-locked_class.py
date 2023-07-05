@@ -12,3 +12,11 @@ class LockedClass:
             raise AttributeError(f"{error} '{attribute}'")
         else:
             super().__setattr__(attribute, value)
+
+    def __getattribute__(self, attribute):
+        """ __getattr__(self, attribute): to get attributes"""
+        if attribute != "first_name":
+            error = "'LockedClass' object has no attribute"
+            raise AttributeError(f"{error} '{attribute}'")
+        else:
+            super().__getattribute__(attribute)
