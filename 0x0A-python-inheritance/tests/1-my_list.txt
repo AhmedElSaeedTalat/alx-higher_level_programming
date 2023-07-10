@@ -34,3 +34,25 @@
 Traceback (most recent call last):
     ...
 NameError: name 'undefined_list' is not defined
+
+=================================
+= case Passing negative numbers =
+=================================
+>>> my_list = MyList()
+>>> my_list.append(-1)
+>>> my_list.append(3)
+>>> my_list.append(-2)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[-2, -1, 3, 5]
+
+=================================
+= case Passing repeated numbers =
+=================================
+>>> my_list = MyList()
+>>> my_list.append(2)
+>>> my_list.append(4)
+>>> my_list.append(4)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[2, 4, 4, 5]
