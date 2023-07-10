@@ -25,11 +25,47 @@ Traceback (most recent call last):
 Exception: area() is not implemented
 
 
-=============================
-= case value is not integer =
-=============================
+========================
+= case value is string =
+========================
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
+
+=======================
+= case value is float =
+=======================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", 5.4)
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
+
+=========================
+= case value is a tuple =
+=========================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", (5,4))
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
+
+========================
+= case value is a list =
+========================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", [4, 5])
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
+
+========================
+= case value is a dict =
+========================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", {"name": "value"})
 Traceback (most recent call last):
     ...
 TypeError: name must be an integer
