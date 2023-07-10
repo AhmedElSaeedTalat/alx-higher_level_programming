@@ -114,3 +114,31 @@ TypeError: integer_validator() missing 2 required positional arguments: 'name' a
 Traceback (most recent call last):
     ...
 TypeError: area() takes 1 positional argument but 2 were given
+
+======================================
+= case checking file's documentation =
+======================================
+>>> bgLen = __import__('7-base_geometry').__doc__
+>>> len(bgLen) > 0
+True
+
+=======================================
+= case checking class's documentation =
+=======================================
+>>> bgClass = __import__('7-base_geometry').BaseGeometry.__doc__
+>>> len(bgClass) > 0
+True
+
+========================================
+= case checking area fun documentation =
+========================================
+>>> area_doc = __import__('7-base_geometry').BaseGeometry.area.__doc__
+>>> len(area_doc) > 0
+True
+
+========================================
+= case checking area fun documentation =
+========================================
+>>> intValidator_doc = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+>>> len(intValidator_doc) > 0
+True
