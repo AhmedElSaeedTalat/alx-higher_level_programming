@@ -26,3 +26,11 @@
 >>> my_list = MyList()
 >>> my_list.print_sorted()
 []
+
+===============================
+= case Passing undefined list =
+===============================
+>>> undefined_list.print_sorted()
+Traceback (most recent call last):
+    ...
+NameError: name 'undefined_list' is not defined
