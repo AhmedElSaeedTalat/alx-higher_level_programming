@@ -1,0 +1,53 @@
+================================
+= tests file for MyList Class: =
+================================
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+=================================
+= case Passing legitimate value =
+=================================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+
+=================================
+= case Passing legitimate value =
+=================================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("width", 89)
+
+==============================
+= case calling area function =
+==============================
+>>> bg = BaseGeometry()
+>>> print(bg.area())
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+
+=============================
+= case value is not integer =
+=============================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
+
+===================
+= case value eq 0 =
+===================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+    ...
+ValueError: age must be greater than 0
+
+==============================
+= case value less than zero  =
+==============================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+    ...
+ValueError: distance must be greater than 0
