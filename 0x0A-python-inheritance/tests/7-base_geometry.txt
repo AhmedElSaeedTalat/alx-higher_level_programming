@@ -51,3 +51,30 @@ ValueError: age must be greater than 0
 Traceback (most recent call last):
     ...
 ValueError: distance must be greater than 0
+
+===================================
+= case passing only one argument  =
+===================================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance")
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+==============================
+= case passing no arguments  =
+==============================
+>>> bg = BaseGeometry()
+>>> bg.integer_validator()
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+===============================================
+= case passing one argument to area function  =
+===============================================
+>>> bg = BaseGeometry()
+>>> bg.area("distance")
+Traceback (most recent call last):
+    ...
+TypeError: area() takes 1 positional argument but 2 were given
