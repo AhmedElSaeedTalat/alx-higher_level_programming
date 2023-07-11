@@ -4,7 +4,7 @@
 
 def append_after(filename="", search_string="", new_string=""):
     """ inster text after a strting """
-    line = []
+    lines = []
     with open(filename, "r", encoding="utf8") as f:
         lines = f.readlines()
     for i, line in enumerate(lines):
