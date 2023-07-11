@@ -23,9 +23,10 @@ class Student:
         """
         new_dict = {}
         if attrs is not None:
-            for i in attrs:
-                if hasattr(self, i):
-                    new_dict[i] = getattr(self, i)
+            if len(attrs) > 0:
+                for i in attrs:
+                    if hasattr(self, i):
+                        new_dict[i] = getattr(self, i)
         if bool(new_dict):
             return new_dict
         return vars(self)
