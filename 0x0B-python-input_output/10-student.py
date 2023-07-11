@@ -27,6 +27,6 @@ class Student:
                 for i in attrs:
                     if hasattr(self, i):
                         new_dict[i] = getattr(self, i)
-        if bool(new_dict):
-            return new_dict
-        return vars(self)
+        else:
+            new_dict = vars(self)
+        return new_dict
