@@ -13,6 +13,7 @@ def append_after(filename="", search_string="", new_string=""):
                 lines.insert(i + 1, new_string)
             else:
                 lines.append(new_string)
+                break
     with open(filename, "w", encoding="utf8") as f:
         for line in lines:
             f.write(line)
