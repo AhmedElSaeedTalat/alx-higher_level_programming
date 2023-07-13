@@ -53,8 +53,10 @@ class Rectangle(Base):
         """ width(self, value): setter for width"""
         if not type(value) == int:
             raise TypeError("width must be an integer")
+
         elif value <= 0:
             raise ValueError("width must be > 0")
+
         self.__width = value
 
     @property
@@ -67,8 +69,10 @@ class Rectangle(Base):
         """ height(self, value): setter for height"""
         if not type(value) == int:
             raise TypeError("height must be an integer")
+
         elif value <= 0:
             raise ValueError("height must be > 0")
+
         self.__height = value
 
     @property
@@ -81,8 +85,10 @@ class Rectangle(Base):
         """ x(self, value): setter for x"""
         if not type(value) == int:
             raise TypeError("x must be an integer")
+
         elif value < 0:
             raise ValueError("x must be >= 0")
+
         self.__x = value
 
     @property
@@ -95,8 +101,10 @@ class Rectangle(Base):
         """ y(self, value): setter for y"""
         if not type(value) == int:
             raise TypeError("y must be an integer")
+
         elif value < 0:
             raise ValueError("y must be >= 0")
+
         self.__y = value
 
     def area(self):
@@ -105,9 +113,18 @@ class Rectangle(Base):
 
     def display(self):
         """ display(self): display rectangle"""
+
         h = self.__height
         w = self.__width
+        x = self.__x
+        y = self.__y
+
+        for i in range(y):
+            print()
+
         for i in range(h):
+            for space in range(x):
+                print(' ', end='')
             for y in range(w):
                 print('#', end='')
             print()
