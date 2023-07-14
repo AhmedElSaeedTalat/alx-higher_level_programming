@@ -136,12 +136,16 @@ class Rectangle(Base):
         h = self.__height
         return f"[{class_name}] ({self.id}) {self.__x}/{self.__y} - {w}/{h}"
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update(self, *args): assign args to each attribute"""
         args_len = len(args)
-        i = 0
-        for key in vars(self):
-            setattr(self, key, args[i])
-            i += 1
-            if i == args_len:
-                break
+        if args_len > 0:
+            i = 0
+            for key in vars(self):
+                setattr(self, key, args[i])
+                i += 1
+                if i == args_len:
+                    break
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
