@@ -149,3 +149,11 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """to_dictionary(self): dict to rectangle"""
+        dict1 = {}
+        for key, value in vars(self).items():
+            key = key.replace('_Rectangle__', '')
+            dict1[key] = value
+        return dict1
