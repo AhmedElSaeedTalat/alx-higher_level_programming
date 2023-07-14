@@ -27,3 +27,20 @@ class Square(Rectangle):
         class_name = self.__class__.__name__
         w = super().width
         return f"[{class_name}] ({self.id}) {super().x}/{super().y} - {w}"
+
+    def update(self, *args, **kwargs):
+        """ update(self, *args, **kwargs): assigns arguments"""
+        args_len = len(args)
+        if args_len > 0:
+            i = 0
+            for key in vars(self):
+                if key == "_Rectangle__height":
+                    setattr(self, key, self.width)
+                    continue
+                setattr(self, key, args[i])
+                i += 1
+                if i == args_len:
+                    break
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
