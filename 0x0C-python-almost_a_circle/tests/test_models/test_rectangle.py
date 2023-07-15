@@ -2,10 +2,17 @@
 """TestRectangle test the Rectangle Class"""
 import unittest
 from models.rectangle import Rectangle
+from models.base import Base
+from unittest.mock import patch
+import io
 
 
 class TestRectangle(unittest.TestCase):
     """class TestRectangle to test RectangleClass"""
+    def setUp(self):
+        """ reset nb ojects before each method """
+        Base._Base__nb_objects = 0
+
     def test_attributes(self):
         """test case print attributes passed"""
         r1 = Rectangle(10, 2)
@@ -83,8 +90,27 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r1 = Rectangle(5, 4, 0, 7)
             r1.y = -7
-    
-    def test_the_area(self):
+
+    def test_area(self):
         """ test area"""
         r = Rectangle(2, 3)
         self.assertEqual(r.area(), 6)
+
+    def test_display(self):
+        """test display function"""
+        r1 = Rectangle(4, 4)
+        with patch('sys.stdout', new=io.StringIO()) as output:
+            r1.display()
+            self.assertEqual(output.getvalue(), '####\n####\n####\n####\n')
+
+        r1 = Rectangle(2, 3, 2, 2)
+        with patch('sys.stdout', new=io.StringIO()) as output:
+            r1.display()
+            expected_output = '\n\n  ##\n  ##\n  ##\n'
+            self.assertEqual(output.getvalue(), expected_output)
+
+        r2 = Rectangle(3, 2, 1, 0)
+        with patch('sys.stdout', new=io.StringIO()) as output:
+            r2.display()
+            expected_output = ' ###\n ###\n'
+            self.assertEqual(output.getvalue(), expected_output)
