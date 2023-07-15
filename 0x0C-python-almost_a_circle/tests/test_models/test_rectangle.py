@@ -123,3 +123,21 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(output.getvalue(), "[Rectangle] (12) 2/1 - 4/6\n")
         r2 = Rectangle(5, 5, 1)
         self.assertEqual(r2.__str__(), '[Rectangle] (1) 1/0 - 5/5')
+
+    def test_update(self):
+        """ test update function """
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 10/10 - 10/10')
+
+        r1.update(89, 2)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 10/10 - 2/10')
+
+        r1.update(89, 2, 3)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 10/10 - 2/3')
+
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 4/10 - 2/3')
+
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 4/5 - 2/3')
