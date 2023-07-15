@@ -25,7 +25,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """ """
+        """ save_to_file(cls, list_objs): to save json to file"""
         if list_objs is None:
             list_objs = []
         dicts = []
@@ -34,3 +34,11 @@ class Base:
         json_string = cls.to_json_string(dicts)
         with open(cls.__name__ + ".json", "w") as f:
             f.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ from_jsont_string(json_string):"""
+        if json_string is None:
+            return []
+        else:
+            return json.loads(json_string)
