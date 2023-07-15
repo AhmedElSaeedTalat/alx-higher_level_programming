@@ -37,8 +37,19 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ from_jsont_string(json_string):"""
+        """ from_json_string(json_string): convert from json"""
         if json_string is None or not json_string:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """create(cls, **dictionary): create instance and update attr"""
+        if cls.__name__ == "Rectangle":
+            new_instance = cls(5, 5)
+            new_instance.update(**dictionary)
+        if cls.__name__ == "Square":
+            new_instance = cls(5)
+            new_instance.update(**dictionary)
+        return new_instance
