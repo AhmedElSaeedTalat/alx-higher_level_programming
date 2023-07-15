@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     r1 = Rectangle(10, 2)
     print(r1.id)
-
+    
     r2 = Rectangle(2, 10)
     print(r2.id)
 
