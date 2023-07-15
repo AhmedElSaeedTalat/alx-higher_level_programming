@@ -38,7 +38,7 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """ from_jsont_string(json_string):"""
-        if json_string is None:
+        if json_string is None or not json_string:
             return []
         else:
             return json.loads(json_string)
