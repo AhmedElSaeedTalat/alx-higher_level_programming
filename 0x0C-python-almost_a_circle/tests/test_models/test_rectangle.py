@@ -6,7 +6,7 @@ from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
     """class TestRectangle to test RectangleClass"""
-    def test_print_attributes(self):
+    def test_attributes(self):
         """test case print attributes passed"""
         r1 = Rectangle(10, 2)
         self.assertEqual(r1.id, 1)
@@ -83,3 +83,8 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r1 = Rectangle(5, 4, 0, 7)
             r1.y = -7
+    
+    def test_the_area(self):
+        """ test area"""
+        r = Rectangle(2, 3)
+        self.assertEqual(r.area(), 6)
