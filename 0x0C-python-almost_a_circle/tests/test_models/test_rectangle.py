@@ -141,3 +141,18 @@ class TestRectangle(unittest.TestCase):
 
         r1.update(89, 2, 3, 4, 5)
         self.assertEqual(r1.__str__(), '[Rectangle] (89) 4/5 - 2/3')
+
+    def test_update1(self):
+        """ test update function with kwargs"""
+        r2 = Rectangle(10, 10, 10, 10)
+        r2.update(height=1)
+        self.assertEqual(r2.__str__(), '[Rectangle] (1) 10/10 - 10/1')
+
+        r2.update(width=1, x=2)
+        self.assertEqual(r2.__str__(), '[Rectangle] (1) 2/10 - 1/1')
+
+        r2.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(r2.__str__(), '[Rectangle] (89) 3/1 - 2/1')
+
+        r2.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(r2.__str__(), '[Rectangle] (89) 1/3 - 4/2')
