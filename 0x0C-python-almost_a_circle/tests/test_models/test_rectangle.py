@@ -114,3 +114,12 @@ class TestRectangle(unittest.TestCase):
             r2.display()
             expected_output = ' ###\n ###\n'
             self.assertEqual(output.getvalue(), expected_output)
+
+    def test_str(self):
+        """test __str__ function"""
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        with patch('sys.stdout', new=io.StringIO()) as output:
+            print(r1)
+            self.assertEqual(output.getvalue(), "[Rectangle] (12) 2/1 - 4/6\n")
+        r2 = Rectangle(5, 5, 1)
+        self.assertEqual(r2.__str__(), '[Rectangle] (1) 1/0 - 5/5')
