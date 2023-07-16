@@ -3,6 +3,8 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+from unittest.mock import patch
+from io import StringIO
 
 
 class TestBase(unittest.TestCase):
@@ -79,3 +81,31 @@ class TestBase(unittest.TestCase):
         """ case argument is None """
         list_output = Rectangle.from_json_string(None)
         self.assertEqual(list_output, [])
+
+    def test_create(self):
+        """ test create functions """
+
+        """ case to create instance & update attributes """
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
+        self.assertEqual(type(r2), Rectangle)
+        with patch('sys.stdout', new=StringIO()) as output:
+            print(r2)
+            self.assertEqual(output.getvalue(), '[Rectangle] (1) 1/0 - 3/5\n')
+        self.assertEqual(r2.__str__(), '[Rectangle] (1) 1/0 - 3/5')
+
+    def test_load_from_file(self):
+        """ test load_from_file function """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        list_rectangles_output = Rectangle.load_from_file()
+        expected = '[Rectangle] (1) 2/8 - 10/7'
+        self.assertEqual(list_rectangles_output[0].__str__(), expected)
+        expected = '[Rectangle] (2) 0/0 - 2/4'
+        self.assertEqual(list_rectangles_output[1].__str__(), expected)
