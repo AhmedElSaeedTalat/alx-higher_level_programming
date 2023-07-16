@@ -2,6 +2,7 @@
 """ create class Base """
 import json
 import os
+import csv
 
 
 class Base:
@@ -65,4 +66,37 @@ class Base:
             obj_dicts = cls.from_json_string(f.read())
         for dict1 in obj_dicts:
             list_instances.append(cls.create(**dict1))
+        return list_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save_to_file_csv(cls, list_objs): serialize in csv"""
+        file_name = cls.__name__ + '.csv'
+        dicts = []
+        for obj in list_objs:
+            dicts.append(cls.to_dictionary(obj))
+        with open(file_name, 'w') as f:
+            if cls.__name__ == 'Rectangle':
+                field_names = ['id', 'width', 'height', 'x', 'y']
+            else:
+                field_names = ['id', 'size', 'x', 'y']
+            csv_file = csv.DictWriter(f, fieldnames=field_names)
+            csv_file.writeheader()
+            for row in dicts:
+                csv_file.writerow(row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load_from_file_csv(cls):deserializes from csv"""
+        if not os.path.exists(cls.__name__ + ".csv"):
+            return []
+        list_instances = []
+        with open(cls.__name__ + ".csv") as f:
+            reader = csv.DictReader(f)
+            dict1 = {}
+            for row in reader:
+                for key, value in row.items():
+                    dict1[key] = int(value)
+                list_instances.append(cls.create(**dict1))
+                dict1.clear()
         return list_instances
