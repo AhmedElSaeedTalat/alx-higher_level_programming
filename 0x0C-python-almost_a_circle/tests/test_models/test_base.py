@@ -3,6 +3,7 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
 from unittest.mock import patch
 from io import StringIO
 
@@ -109,3 +110,23 @@ class TestBase(unittest.TestCase):
         self.assertEqual(list_rectangles_output[0].__str__(), expected)
         expected = '[Rectangle] (2) 0/0 - 2/4'
         self.assertEqual(list_rectangles_output[1].__str__(), expected)
+
+    def test_csv_functions(self):
+        """ test csv functions"""
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        list_output = Rectangle.load_from_file_csv()
+        self.assertEqual(list_output[0].__str__(), '[Rectangle] (1) 2/8 - 10/7')
+        self.assertEqual(list_output[1].__str__(), '[Rectangle] (2) 0/0 - 2/4')
+
+        """ case of list of Squares """
+
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+        Square.save_to_file_csv(list_squares_input)
+        list_output = Square.load_from_file_csv()
+        self.assertEqual(list_output[0].__str__(), '[Square] (5) 0/0 - 5')
+        self.assertEqual(list_output[1].__str__(), '[Square] (6) 9/1 - 7')
