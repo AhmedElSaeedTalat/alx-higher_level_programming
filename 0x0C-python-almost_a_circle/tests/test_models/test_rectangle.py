@@ -13,6 +13,10 @@ class TestRectangle(unittest.TestCase):
         """ reset nb ojects before each method """
         Base._Base__nb_objects = 0
 
+    def test_docs(self):
+        """ test if it has docs """
+        self.assertEqual(len(Rectangle.__doc__) > 1, True)
+
     def test_attributes(self):
         """test case print attributes passed"""
         r1 = Rectangle(10, 2)
@@ -161,7 +165,8 @@ class TestRectangle(unittest.TestCase):
         """test to_dictionary function"""
         r1 = Rectangle(10, 2, 1, 9)
         r1_dictionary = r1.to_dictionary()
-        self.assertEqual(r1_dictionary, {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})
+        expected_output = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(r1_dictionary, expected_output)
         self.assertEqual(type(r1_dictionary), dict)
 
         r2 = Rectangle(1, 1)

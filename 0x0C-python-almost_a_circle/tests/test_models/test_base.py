@@ -14,6 +14,10 @@ class TestBase(unittest.TestCase):
         """ reset nb ojects before each method """
         Base._Base__nb_objects = 0
 
+    def test_docs(self):
+        """ test if it has docs """
+        self.assertEqual(len(Base.__doc__) > 1, True)
+
     def test_no_id(self):
         """test case no id is passed"""
         b1 = Base()
@@ -117,9 +121,9 @@ class TestBase(unittest.TestCase):
         r2 = Rectangle(2, 4)
         list_rectangles_input = [r1, r2]
         Rectangle.save_to_file_csv(list_rectangles_input)
-        list_output = Rectangle.load_from_file_csv()
-        self.assertEqual(list_output[0].__str__(), '[Rectangle] (1) 2/8 - 10/7')
-        self.assertEqual(list_output[1].__str__(), '[Rectangle] (2) 0/0 - 2/4')
+        l_output = Rectangle.load_from_file_csv()
+        self.assertEqual(l_output[0].__str__(), '[Rectangle] (1) 2/8 - 10/7')
+        self.assertEqual(l_output[1].__str__(), '[Rectangle] (2) 0/0 - 2/4')
 
         """ case of list of Squares """
 

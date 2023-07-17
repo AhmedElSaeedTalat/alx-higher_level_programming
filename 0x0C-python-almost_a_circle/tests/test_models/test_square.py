@@ -15,6 +15,10 @@ class TestBase(unittest.TestCase):
         self.s1 = Square(2, 2)
         self.s2 = Square(3, 1, 3)
 
+    def test_docs(self):
+        """ test if it has docs """
+        self.assertEqual(len(Base.__doc__) > 1, True)
+
     def test_display_str(self):
         """test case display and __str__ function"""
         with patch("sys.stdout", new=StringIO()) as output:
