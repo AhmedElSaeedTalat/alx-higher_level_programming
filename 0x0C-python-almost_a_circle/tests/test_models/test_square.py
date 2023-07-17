@@ -31,6 +31,11 @@ class TestBase(unittest.TestCase):
         self.assertTrue(issubclass(Square, Base))
         self.assertTrue(issubclass(Square, Rectangle))
 
+    def test_noArgs(self):
+        """ test no args """
+        with self.assertRaises(TypeError):
+            s = Square()
+
     def test_display_str(self):
         """test case display and __str__ function"""
         with patch("sys.stdout", new=StringIO()) as output:

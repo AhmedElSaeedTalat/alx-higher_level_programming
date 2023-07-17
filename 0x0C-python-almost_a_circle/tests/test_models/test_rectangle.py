@@ -26,6 +26,11 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(isinstance(r, (Rectangle, Base)))
         self.assertTrue(issubclass(Rectangle, Base))
 
+    def test_noArgs(self):
+        """ test no args """
+        with self.assertRaises(TypeError):
+            r1 = Rectangle()
+
     def test_attributes(self):
         """test case print attributes passed"""
         r1 = Rectangle(10, 2)
