@@ -100,6 +100,10 @@ class TestSquare(unittest.TestCase):
             expected_output = '[Square] (89) 12/1 - 7\n'
             self.assertEqual(output.getvalue(), expected_output)
 
+        """ pass invalid values """
+        with self.assertRaises(TypeError):
+            s1.update(size='2')
+
     def test_to_dictionary(self):
         """ test to_dictionary function"""
         Base._Base__nb_objects = 0
