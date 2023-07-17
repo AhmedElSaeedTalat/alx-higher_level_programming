@@ -111,3 +111,7 @@ class TestSquare(unittest.TestCase):
         s1_dictionary = s1.to_dictionary()
         self.assertEqual(s1_dictionary, {'id': 1, 'x': 2, 'size': 10, 'y': 1})
         self.assertEqual(type(s1_dictionary), dict)
+
+        """passing argument when none is needed"""
+        with self.assertRaises(TypeError):
+            s1.to_dictionary('passed_value')
