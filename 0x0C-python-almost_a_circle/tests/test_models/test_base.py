@@ -28,6 +28,9 @@ class TestBase(unittest.TestCase):
         b3 = Base()
         self.assertEqual(b3.id, 3)
 
+        with self.assertRaises(TypeError):
+            b4 = Base(12, 12)
+
     def test_passed_id(self):
         """test case passed id"""
         b1 = Base(12)
