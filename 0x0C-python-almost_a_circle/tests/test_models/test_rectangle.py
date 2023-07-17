@@ -67,45 +67,45 @@ class TestRectangle(unittest.TestCase):
 
     def test_raises(self):
         """test error when setting attributes"""
-        with self.assertRaises(TypeError):
-            Rectangle(5, '2')
+        with self.assertRaisesRegex(TypeError, 'width must be an integer'):
+            Rectangle('5', 2)
 
-        with self.assertRaises(TypeError):
+        with self.assertRaisesRegex(TypeError, 'width must be an integer'):
             r1 = Rectangle(5, 5)
             r1.width = '2'
 
-        with self.assertRaises(TypeError):
-            Rectangle('2', 5)
+        with self.assertRaisesRegex(TypeError, 'height must be an integer'):
+            Rectangle(2, '5')
 
-        with self.assertRaises(TypeError):
+        with self.assertRaisesRegex(TypeError, 'height must be an integer'):
             r1 = Rectangle(5, 5)
             r1.height = '2'
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'height must be > 0'):
             Rectangle(5, -10)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'width must be > 0'):
             r1 = Rectangle(5, 4)
             r1.width = 0
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'width must be > 0'):
             Rectangle(-5, 10)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'height must be > 0'):
             r1 = Rectangle(5, 4)
             r1.height = 0
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'x must be >= 0'):
             Rectangle(5, 10, -5, 0)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'x must be >= 0'):
             r1 = Rectangle(5, 4, 0, 0)
             r1.x = -5
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'y must be >= 0'):
             Rectangle(5, 10, 0, -7)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'y must be >= 0'):
             r1 = Rectangle(5, 4, 0, 7)
             r1.y = -7
 
