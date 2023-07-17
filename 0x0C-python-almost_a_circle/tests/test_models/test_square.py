@@ -9,8 +9,8 @@ from io import StringIO
 import inspect
 
 
-class TestBase(unittest.TestCase):
-    """class TestBase to test BaseClass"""
+class TestSquare(unittest.TestCase):
+    """class TestSquare to test SquareClass"""
     def setUp(self):
         """ reset nb ojects before each method """
         Base._Base__nb_objects = 0
@@ -30,6 +30,15 @@ class TestBase(unittest.TestCase):
         self.assertTrue(isinstance(s, (Square, Rectangle, Base)))
         self.assertTrue(issubclass(Square, Base))
         self.assertTrue(issubclass(Square, Rectangle))
+
+    def test_invalid_size(self):
+        """ test invalid size"""
+        with self.assertRaises(TypeError):
+            s = Square('2')
+
+        """ passing negative number """
+        with self.assertRaises(ValueError):
+            s = Square(-4)
 
     def test_noArgs(self):
         """ test no args """
