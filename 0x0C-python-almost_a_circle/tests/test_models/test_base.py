@@ -18,6 +18,7 @@ class TestBase(unittest.TestCase):
     def test_docs(self):
         """ test if it has docs """
         self.assertIsNotNone(Base.__doc__, "has no docs")
+        self.assertIsNotNone('models.base'.__doc__, "Module has no docs")
         for method in inspect.getmembers(Base):
             self.assertIsNotNone(method.__doc__, "has no docs")
 

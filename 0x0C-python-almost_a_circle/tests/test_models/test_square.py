@@ -20,6 +20,7 @@ class TestSquare(unittest.TestCase):
     def test_docs(self):
         """ test if it has docs """
         self.assertIsNotNone(Square.__doc__, "Square has no docs")
+        self.assertIsNotNone('models.square'.__doc__, "Module has no docs")
         for method in inspect.getmembers(Square):
             self.assertIsNotNone(method.__doc__, "Method has no docs")
 

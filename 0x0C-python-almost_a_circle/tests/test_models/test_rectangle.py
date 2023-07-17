@@ -17,6 +17,7 @@ class TestRectangle(unittest.TestCase):
     def test_docs(self):
         """ test if it has docs """
         self.assertIsNotNone(Rectangle.__doc__, "Rectangle has no docs")
+        self.assertIsNotNone('models.rectangle'.__doc__, "Module has no docs")
         for method in inspect.getmembers(Rectangle):
             self.assertIsNotNone(method.__doc__, "Method has no docs")
 
