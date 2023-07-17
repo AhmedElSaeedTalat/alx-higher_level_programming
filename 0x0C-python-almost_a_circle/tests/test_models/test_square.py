@@ -69,4 +69,10 @@ class TestBase(unittest.TestCase):
             expected_output = '[Square] (89) 12/1 - 7\n'
             self.assertEqual(output.getvalue(), expected_output)
 
-
+    def test_to_dictionary(self):
+        """ test to_dictionary function"""
+        Base._Base__nb_objects = 0
+        s1 = Square(10, 2, 1)
+        s1_dictionary = s1.to_dictionary()
+        self.assertEqual(s1_dictionary, {'id': 1, 'x': 2, 'size': 10, 'y': 1})
+        self.assertEqual(type(s1_dictionary), dict)
