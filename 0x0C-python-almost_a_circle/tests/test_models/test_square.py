@@ -44,6 +44,7 @@ class TestBase(unittest.TestCase):
 
     def test_update(self):
         """test update function"""
+        Base._Base__nb_objects = 0
         s1 = Square(5)
         s1.update(10)
         self.assertEqual(s1.__str__(), '[Square] (10) 0/0 - 5')
