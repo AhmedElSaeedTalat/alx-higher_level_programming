@@ -3,6 +3,7 @@
 import unittest
 from models.square import Square
 from models.base import Base
+from models.rectangle import Rectangle
 from unittest.mock import patch
 from io import StringIO
 import inspect
@@ -21,6 +22,14 @@ class TestBase(unittest.TestCase):
         self.assertIsNotNone(Square.__doc__, "Square has no docs")
         for method in inspect.getmembers(Square):
             self.assertIsNotNone(method.__doc__, "Method has no docs")
+
+    def test_subcls(self):
+        """ check if cls is a subclass"""
+        Base._Base__nb_objects = 0
+        s = Square(10)
+        self.assertTrue(isinstance(s, (Square, Rectangle, Base)))
+        self.assertTrue(issubclass(Square, Base))
+        self.assertTrue(issubclass(Square, Rectangle))
 
     def test_display_str(self):
         """test case display and __str__ function"""

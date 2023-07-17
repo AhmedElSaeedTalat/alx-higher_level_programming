@@ -20,6 +20,12 @@ class TestRectangle(unittest.TestCase):
         for method in inspect.getmembers(Rectangle):
             self.assertIsNotNone(method.__doc__, "Method has no docs")
 
+    def test_subcls(self):
+        """ check if cls is a subclass"""
+        r = Rectangle(5, 10)
+        self.assertTrue(isinstance(r, (Rectangle, Base)))
+        self.assertTrue(issubclass(Rectangle, Base))
+
     def test_attributes(self):
         """test case print attributes passed"""
         r1 = Rectangle(10, 2)
