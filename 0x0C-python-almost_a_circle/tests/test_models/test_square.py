@@ -104,6 +104,15 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s1.update(size='2')
 
+        with self.assertRaises(ValueError):
+            s1.update(size=-2)
+
+        with self.assertRaises(ValueError):
+            s1.update(x=-2)
+
+        with self.assertRaises(ValueError):
+            s1.update(y=-2)
+
     def test_to_dictionary(self):
         """ test to_dictionary function"""
         Base._Base__nb_objects = 0

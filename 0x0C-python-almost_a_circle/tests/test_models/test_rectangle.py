@@ -114,6 +114,9 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(2, 3)
         self.assertEqual(r.area(), 6)
 
+        with self.assertRaises(TypeError):
+            r.area('passed_value')
+
     def test_display(self):
         """test display function"""
         r1 = Rectangle(4, 4)
@@ -132,6 +135,9 @@ class TestRectangle(unittest.TestCase):
             r2.display()
             expected_output = ' ###\n ###\n'
             self.assertEqual(output.getvalue(), expected_output)
+
+        with self.assertRaises(TypeError):
+            r2.display('passed_value')
 
     def test_str(self):
         """test __str__ function"""
@@ -175,6 +181,24 @@ class TestRectangle(unittest.TestCase):
         r2.update(x=1, height=2, y=3, width=4)
         self.assertEqual(r2.__str__(), '[Rectangle] (89) 1/3 - 4/2')
 
+        with self.assertRaises(TypeError):
+            r2.update(width='2')
+
+        with self.assertRaises(TypeError):
+            r2.update(height='2')
+
+        with self.assertRaises(ValueError):
+            r2.update(width=-2)
+
+        with self.assertRaises(ValueError):
+            r2.update(height=-2)
+
+        with self.assertRaises(ValueError):
+            r2.update(x=-2)
+
+        with self.assertRaises(ValueError):
+            r2.update(y=-2)
+
     def test_to_dictionary(self):
         """test to_dictionary function"""
         r1 = Rectangle(10, 2, 1, 9)
@@ -188,3 +212,6 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new=io.StringIO()) as output:
             print(r2)
             self.assertEqual(output.getvalue(), "[Rectangle] (1) 1/9 - 10/2\n")
+
+        with self.assertRaises(TypeError):
+            r2.to_dictionary('added_value')
