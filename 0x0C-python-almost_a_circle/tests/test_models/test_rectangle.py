@@ -5,6 +5,7 @@ from models.rectangle import Rectangle
 from models.base import Base
 from unittest.mock import patch
 import io
+import inspect
 
 
 class TestRectangle(unittest.TestCase):
@@ -15,7 +16,9 @@ class TestRectangle(unittest.TestCase):
 
     def test_docs(self):
         """ test if it has docs """
-        self.assertEqual(len(Rectangle.__doc__) > 1, True)
+        self.assertIsNotNone(Rectangle.__doc__, "Rectangle has no docs")
+        for method in inspect.getmembers(Rectangle):
+            self.assertIsNotNone(method.__doc__, "Method has no docs")
 
     def test_attributes(self):
         """test case print attributes passed"""

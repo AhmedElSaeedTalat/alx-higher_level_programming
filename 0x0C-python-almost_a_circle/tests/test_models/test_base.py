@@ -6,6 +6,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 from unittest.mock import patch
 from io import StringIO
+import inspect
 
 
 class TestBase(unittest.TestCase):
@@ -16,7 +17,9 @@ class TestBase(unittest.TestCase):
 
     def test_docs(self):
         """ test if it has docs """
-        self.assertEqual(len(Base.__doc__) > 1, True)
+        self.assertIsNotNone(Base.__doc__, "has no docs")
+        for method in inspect.getmembers(Base):
+            self.assertIsNotNone(method.__doc__, "has no docs")
 
     def test_no_id(self):
         """test case no id is passed"""
