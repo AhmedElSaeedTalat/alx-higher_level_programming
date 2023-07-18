@@ -85,6 +85,12 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'height must be > 0'):
             Rectangle(5, -10)
 
+        with self.assertRaisesRegex(ValueError, 'width must be > 0'):
+            Rectangle(0, 10)
+
+        with self.assertRaisesRegex(ValueError, 'height must be > 0'):
+            Rectangle(5, 0)
+
         with self.assertRaisesRegex(TypeError, 'x must be an integer'):
             Rectangle(5, 10, '2', 4)
 
