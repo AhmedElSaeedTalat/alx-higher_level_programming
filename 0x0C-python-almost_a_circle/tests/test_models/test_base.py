@@ -75,6 +75,12 @@ class TestBase(unittest.TestCase):
             expected = '[]'
             self.assertEqual(file.read(), expected)
 
+        Rectangle.save_to_file([])
+
+        with open("Rectangle.json", "r") as file:
+            expected = '[]'
+            self.assertEqual(file.read(), expected)
+
     def test_from_json_string(self):
         """ test from_json_string function """
         list_input = [
