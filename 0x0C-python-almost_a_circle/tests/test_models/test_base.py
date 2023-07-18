@@ -6,6 +6,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 from unittest.mock import patch
 from io import StringIO
+import os
 import inspect
 
 
@@ -136,6 +137,7 @@ class TestBase(unittest.TestCase):
 
     def test_load_no_file(self):
         """ no file passed"""
+        os.remove('Rectangle.json')
         list_output = Rectangle.load_from_file()
         self.assertEqual(list_output, [])
 
