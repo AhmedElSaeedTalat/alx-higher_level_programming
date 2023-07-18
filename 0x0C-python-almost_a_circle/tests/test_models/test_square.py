@@ -16,6 +16,7 @@ class TestSquare(unittest.TestCase):
         Base._Base__nb_objects = 0
         self.s1 = Square(2, 2)
         self.s2 = Square(3, 1, 3)
+        self.s3 = Square(1, 2, 3, 4)
 
     def test_docs(self):
         """ test if it has docs """
@@ -34,12 +35,19 @@ class TestSquare(unittest.TestCase):
 
     def test_invalid_size(self):
         """ test invalid size"""
+        Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             s = Square('2')
 
         """ passing negative number """
         with self.assertRaises(ValueError):
             s = Square(-4)
+
+        with self.assertRaises(TypeError):
+            Square(1, "3")
+
+        with self.assertRaises(TypeError):
+            Square(1, 4, "3")
 
     def test_noArgs(self):
         """ test no args """
