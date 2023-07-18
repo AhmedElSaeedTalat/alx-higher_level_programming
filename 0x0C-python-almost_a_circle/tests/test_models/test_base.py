@@ -134,6 +134,11 @@ class TestBase(unittest.TestCase):
         expected = '[Rectangle] (2) 0/0 - 2/4'
         self.assertEqual(list_rectangles_output[1].__str__(), expected)
 
+    def test_load_no_file(self):
+        """ no file passed"""
+        list_output = Rectangle.load_from_file()
+        self.assertEqual(list_output, [])
+
     def test_csv_functions(self):
         """ test csv functions"""
         r1 = Rectangle(10, 7, 2, 8)
