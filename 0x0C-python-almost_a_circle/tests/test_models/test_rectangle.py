@@ -234,3 +234,27 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             r2.to_dictionary('added_value')
+
+    def test_save_to_Rectangle(self):
+        """ """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+
+        with open("Rectangle.json", "r") as file:
+            expected = '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8},\
+ {"id": 2, "width": 2, "height": 4, "x": 0, "y": 0}]'
+            self.assertEqual(file.read(), expected)
+
+        """ case argument is None """
+
+        Rectangle.save_to_file(None)
+
+        with open("Rectangle.json", "r") as file:
+            expected = '[]'
+            self.assertEqual(file.read(), expected)
+
+        Rectangle.save_to_file([])
+
+        with open("Rectangle.json", "r") as file:
+            expected = '[]'

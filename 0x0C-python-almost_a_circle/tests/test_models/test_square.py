@@ -142,3 +142,17 @@ class TestSquare(unittest.TestCase):
         """passing argument when none is needed"""
         with self.assertRaises(TypeError):
             s1.to_dictionary('passed_value')
+
+    def test_saveSquare(self):
+        """ save function for square"""
+        Square.save_to_file(None)
+
+        with open("Square.json", "r") as file:
+            expected = '[]'
+            self.assertEqual(file.read(), expected)
+
+        Square.save_to_file([])
+
+        with open("Square.json", "r") as file:
+            expected = '[]'
+            self.assertEqual(file.read(), expected)
