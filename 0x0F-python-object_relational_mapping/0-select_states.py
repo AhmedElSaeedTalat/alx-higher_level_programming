@@ -16,3 +16,5 @@ if __name__ == "__main__":
     for row in rows:
         info_tuple = tuple(str(col) for col in row)
         print(info_tuple)
+    cur.close()
+    db.close()
