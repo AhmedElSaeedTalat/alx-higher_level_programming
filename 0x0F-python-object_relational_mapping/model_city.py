@@ -3,6 +3,7 @@
 from sqlalchemy import String, Integer, Column
 from model_state import Base, State
 
+
 class City(Base):
     """ class City to set table states
         Args:
