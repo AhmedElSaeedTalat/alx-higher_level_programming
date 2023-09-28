@@ -1,6 +1,6 @@
 # Project Description
 Python Network tasks
 ## Technology Used
-JS
+Python, bash
 ## Author
 Ahmed El Saeed
