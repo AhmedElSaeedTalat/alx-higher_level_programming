@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" sends a POST request to the passed URL with the email as a parameter"""
+""" get a status code """
 import requests
 import sys
 
