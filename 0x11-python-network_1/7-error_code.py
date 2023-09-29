@@ -2,13 +2,12 @@
 """ get a status code """
 import requests
 import sys
-from requests.exceptions import HTTPError
 
 
 if __name__ == "__main__":
     url = sys.argv[1]
-    try:
-        res = requests.get(url)
-        print(res.text)
-    except HTTPError as e:
+    res = requests.get(url)
+    if res.status_code > 400:
         print('Error code:', res.status_code)
+    else:
+        print(res.text)
