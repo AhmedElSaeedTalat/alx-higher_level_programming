@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ sends a request to the URL and displays the body of the response"""
-from urllib.parse import urlencode
+from urllib.request import urlopen
 import sys
 
 
