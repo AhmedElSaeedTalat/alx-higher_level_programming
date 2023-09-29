@@ -5,9 +5,20 @@ import sys
 
 
 if __name__ == "__main__":
-    letter = sys.argv[1]
+    if len(sys.argv) > 1:
+        letter = sys.argv[1]
+    else:
+        letter = ""
     url = 'http://0.0.0.0:5000/search_user'
-    data = {'q': letter}
-    header = {"content-type":"application/json"}
-    res = requests.post(url, data=data, headers=header)
-    print(res.text)
+    val = {'q': letter}
+    res = requests.post(url, data=val)
+    header = res.headers.get('content-type')
+    if header == 'application/json':
+        try:
+            js = res.json()
+            if len(js) > 0:
+                print(f"[{js['id']}]", js['name'])
+            else:
+                print("No result")
+        except ValueError:
+            print("Not a valid JSON")
