@@ -12,4 +12,4 @@ if __name__ == "__main__":
             res = f.read().decode('utf8')
             print(res)
     except HTTPError as e:
-        print(e.code)
+        print('Error code:', e.code)
