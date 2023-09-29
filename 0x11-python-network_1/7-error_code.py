@@ -7,4 +7,4 @@ import sys
 if __name__ == "__main__":
     url = sys.argv[1]
     res = requests.get(url)
-    print(res.status_code)
+    print('Error code:', res.status_code)
