@@ -3,6 +3,7 @@
 
 
 def find_peak(list_of_integers):
+    """ function to fine the peak """
     if list_of_integers is None or len(list_of_integers) == 0:
         return None
     lst = list_of_integers
