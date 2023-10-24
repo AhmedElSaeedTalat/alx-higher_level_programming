@@ -5,14 +5,13 @@ request(process.argv[2], function (error, response, body) {
     console.log(error);
   }
   const data = JSON.parse(body);
-  function checkId (id) {
-    return id === 'https://swapi-api.alx-tools.com/api/people/18/';
-  }
-  const counterList = [];
+  let counter = 0;
   for (let i = 0; i < data.results.length; i++) {
-    if (data.results[i].characters.filter(checkId).length !== 0) {
-      counterList.push(data.results[i].characters.filter(checkId));
+    for (let y = 0; y < data.results[i].characters.length; y++) {
+      if (data.results[i].characters[y].endsWith('/18/')) {
+        counter += 1;
+      }
     }
   }
-  console.log(counterList.length);
+  console.log(counter);
 });
