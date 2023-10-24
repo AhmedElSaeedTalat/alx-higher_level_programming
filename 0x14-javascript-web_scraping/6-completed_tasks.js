@@ -13,7 +13,7 @@ request(process.argv[2], function (error, response, body) {
         counter += 1;
       }
     }
-    dict[i] = counter;
+    dict[String(i)] = counter;
     counter = 0;
   }
   console.log(dict);
